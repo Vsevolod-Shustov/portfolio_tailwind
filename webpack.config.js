@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const PORT = 3001;
 
@@ -38,6 +39,9 @@ module.exports = {
       manifest: "./public/manifest.json",
       favicon: "./public/favicon.ico",
       template: "./public/index.html",
+    }),
+    new ESLintPlugin({
+      extensions: ["js"],
     }),
   ],
 };
