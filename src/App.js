@@ -15,8 +15,10 @@ class App extends React.Component {
     return (
       <div id={styles.app} className="max-w-screen-xl mx-auto flex flex-col lg:flex-row lg:flex-wrap">
         <Header />
-        <Main />
-        <Side />
+          <div className="lg:flex lg:flex-nowrap">
+            <Main />
+            <Side />
+          </div>
         <Footer />
       </div>
     )

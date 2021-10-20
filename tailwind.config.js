@@ -7,6 +7,8 @@ module.exports = {
       '1': '1 1 0%',
       auto: '1 1 auto',
       none: 'none',
+      initial: "0 1 auto",
+      noshrink: "1 0 auto",
       "auto-2": "2 1 auto",
       "auto-3": "3 1 auto",
       "auto-4": "4 1 auto",
