@@ -10,6 +10,9 @@ module.exports = {
   devServer: {
     static: path.join(__dirname, "dist"),
     port: PORT,
+    headers: {
+      'Cache-Control': 'no-store',
+    },
   },
   output: {
     publicPath: "auto",
@@ -21,17 +24,36 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: true
+            }
+          },
+          "postcss-loader",
+          'sass-loader'
+        ]
       },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ["babel-loader"]
       },
+      {
+        test: /\.svg$/,
+        use: ["url-loader"]
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: 'file-loader',
+      }
     ],
   },
   plugins: [
