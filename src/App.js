@@ -11,12 +11,10 @@ class App extends React.Component {
 
   render(){
     return (
-      <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row lg:flex-wrap">
+      <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row lg:flex-wrap px-2">
         <Header />
-          <div className="lg:flex lg:flex-nowrap">
             <Main />
             <Side />
-          </div>
         <Footer />
       </div>
     )
